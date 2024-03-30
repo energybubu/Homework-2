@@ -49,10 +49,10 @@ def dfs(initial_token, initial_amnt, options, explored, path_so_far, target_amnt
 def get_final_amnt(path, initial_amnt):
     path = path.split()
     for i in range(len(path)):
-        if i == 0:
-            continue
-        initial_amnt = get_dst_token_amnt(path[i-1], path[i], initial_amnt)
-        print(path[i-1], path[i], initial_amnt)
+        if i == len(path)-1:
+            break
+        initial_amnt = get_dst_token_amnt(path[i], path[i+1], initial_amnt)
+        print(path[i], path[i+1], initial_amnt)
     return initial_amnt
 
 def arbitrage(target_amnt):
@@ -60,6 +60,6 @@ def arbitrage(target_amnt):
     ret = dfs('tokenB', 5, options, [], 'tokenB', target_amnt)
     print(f"path: {ret[0]}, tokenB balance={ret[1]}.")
     return ret
-
+get_final_amnt('tokenB tokenA tokenD tokenC tokenB', 5)
     
-arbitrage(20)
+# arbitrage(20)
