@@ -62,6 +62,6 @@ def arbitrage(target_amnt):
     ret = dfs('tokenB', 5, options, [], 'tokenB', target_amnt)
     print(f"path: {ret[0]}, tokenB balance={ret[1]}.")
     return ret
-get_final_amnt('tokenB tokenA tokenD tokenC tokenB', 5)
+# get_final_amnt('tokenB tokenA tokenD tokenC tokenB', 5)
     
-# arbitrage(20)
+arbitrage(20)
