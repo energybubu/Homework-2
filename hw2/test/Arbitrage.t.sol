@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+import {Test, console} from "forge-std/Test.sol";
 import "forge-std/Test.sol";
 import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import {ISwapV2Router02} from "../src/Arbitrage.sol";
@@ -79,6 +80,15 @@ contract Arbitrage is Test {
         /**
          * Please add your solution below
          */
+        address[] memory path = new address[](5);
+        path[0] = address(tokenB);
+        path[1] = address(tokenA);
+        path[2] = address(tokenD);
+        path[3] = address(tokenC);
+        path[4] = address(tokenB);
+        
+        router.swapExactTokensForTokens(5 ether, 0 ether, path, arbitrager, block.timestamp);
+        
         /**
          * Please add your solution above
          */
