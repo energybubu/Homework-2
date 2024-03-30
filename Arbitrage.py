@@ -1,3 +1,4 @@
+import copy
 liquidity = {
     ("tokenA", "tokenB"): (17, 10),
     ("tokenA", "tokenC"): (11, 7),
@@ -51,8 +52,9 @@ def get_final_amnt(path, initial_amnt):
     for i in range(len(path)):
         if i == len(path)-1:
             break
+        before = copy.copy(initial_amnt)
         initial_amnt = get_dst_token_amnt(path[i], path[i+1], initial_amnt)
-        print(path[i], path[i+1], initial_amnt)
+        print(f'{before:.4f}', path[i], ' -> ', f'{initial_amnt:.4f}', path[i+1])
     return initial_amnt
 
 def arbitrage(target_amnt):
@@ -60,6 +62,6 @@ def arbitrage(target_amnt):
     ret = dfs('tokenB', 5, options, [], 'tokenB', target_amnt)
     print(f"path: {ret[0]}, tokenB balance={ret[1]}.")
     return ret
-# get_final_amnt('tokenB tokenA tokenD tokenC tokenB', 5)
+get_final_amnt('tokenB tokenA tokenD tokenC tokenB', 5)
     
-arbitrage(20)
+# arbitrage(20)
