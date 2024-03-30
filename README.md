@@ -8,8 +8,11 @@ Provide your profitable path, the amountIn, amountOut value for each swap, and y
 > Path: tokenB -> tokenA -> tokenD -> tokenC -> tokenB
 >
 > 5.0000 tokenB  ->  5.6553 tokenA
+
 > 5.6553 tokenA  ->  2.4588 tokenD
+
 > 2.4588 tokenD  ->  5.0889 tokenC
+
 > 5.0889 tokenC  ->  20.1299 tokenB
 >
 > Final Reward: 20.1299 tokenB
